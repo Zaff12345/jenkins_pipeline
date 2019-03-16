@@ -28,5 +28,15 @@ pipeline {
                 }
             }
         }
+   
+
+    stages {
+        stage('Build') {
+            agent { label 'slave1' }
+            steps {
+                echo 'Building..'
+                sh '''
+                '''
+            }
+        }
     }
-}
