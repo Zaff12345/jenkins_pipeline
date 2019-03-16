@@ -14,7 +14,7 @@ pipeline {
         stage ('Testing Stage') {
 
             steps {
-                withMaven(maven : 'Localmaven') {
+                withMaven(maven : 'MyMaven') {
                     sh 'mvn test'
                 }
             }
@@ -23,7 +23,7 @@ pipeline {
 
         stage ('Deployment Stage') {
             steps {
-                withMaven(maven : 'Localmaven') {
+                withMaven(maven : 'MyMaven') {
                     sh 'mvn install'
                 }
             }
