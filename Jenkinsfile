@@ -28,10 +28,9 @@ pipeline {
                 }
             }
         }
-   
-
-    stages {
-        stage('Build') {
+        
+        stages {
+            stage('Build') {
             agent { label 'slave1' }
             steps {
                 echo 'Building..'
@@ -43,3 +42,6 @@ pipeline {
       }
     }
    
+     
+        
+        
