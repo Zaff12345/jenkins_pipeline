@@ -36,7 +36,7 @@ pipeline {
        
             steps {
                 sshagent (credentials: ['tomcat']) {
-                    sh 'ssh -o StrictHostKeyChecking=no trget/*.jar ec2-use@35.166.214.243:/opt/tomcat/webapps/'
+                    sh 'ssh -o StrictHostKeyChecking=no target/*.jar ec2-use@35.166.214.243:/opt/tomcat/webapps/'
                 }
             }
         }
