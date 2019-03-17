@@ -1,11 +1,11 @@
 pipeline {
-    agent { label 'mavenlabel' }
+    agent { label 'MyMaven' }
 
     stages {
         stage ('Compile Stage') {
 
             steps {
-                withMaven(maven : 'mavenlabel') {
+                withMaven(maven : 'MyMaven') {
                     sh 'mvn clean compile'
                 }
             }
@@ -15,7 +15,7 @@ pipeline {
         stage ('Testing Stage') {
 
             steps {
-                withMaven(maven : 'mavenlabel') {
+                withMaven(maven : 'MyMaven') {
                     sh 'mvn test'
                 }
             }
@@ -25,7 +25,7 @@ pipeline {
         stage ('Build on Slave Stage') {
 
             steps {
-                withMaven(maven : 'mavenlabel') {
+                withMaven(maven : 'MyMaven') {
                     sh 'mvn package'
                 }
             }
@@ -44,7 +44,7 @@ pipeline {
         
         stage ('Deployment Stage') {
             steps {
-                withMaven(maven : 'mavenlabel') {
+                withMaven(maven : 'MyMaven') {
                     sh 'mvn install'
                 }
             }
