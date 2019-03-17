@@ -35,7 +35,7 @@ pipeline {
         stage ('Deploy to Tomcat') {
        
             steps {
-                sshagent (credentials: ['deploy-dev']) {
+                sshagent (credentials: ['tomcat']) {
                     sh 'ssh -o StrictHostKeyChecking=no trget/*.jar ec2-use@35.166.214.243:/opt/tomcat/webapps/'
                 }
             }
