@@ -32,6 +32,14 @@ pipeline {
         }
         
         
+        stage ('Deploy to Tomcat') {
+
+           sshagent (credentials: ['deploy-dev']) {
+             sh 'ssh -o StrictHostKeyChecking=no trget/*.jar ec2-use@35.166.214.243:/opt/tomcat/webapps/'
+            }
+        }
+        
+        
         stage ('Building and Integrating Sonar') {
 
             steps {
